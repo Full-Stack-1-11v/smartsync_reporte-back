@@ -47,20 +47,20 @@ public class ReporteController {
         return ResponseEntity.ok(reportes);
     }
 
-    @GetMapping
-    public ResponseEntity<Reporte> buscarPorId(@RequestBody Reporte reporte) {
-        Reporte nuevoReporte = reporteService.save(reporte);
-        return ResponseEntity.status(HttpStatus.CREATED).body(nuevoReporte);
-    }
-
-    @PostMapping("/{id}")
-    public ResponseEntity<Reporte> guardar(@PathVariable Integer id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Reporte> buscarPorId(@PathVariable Integer id) {
         try {
             Reporte reporte = reporteService.findById(id);
             return ResponseEntity.ok(reporte);
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PostMapping
+    public ResponseEntity<Reporte> guardar(@RequestBody Reporte reporte){
+        Reporte nuevoReporte = reporteService.save(reporte);
+        return ResponseEntity.status(HttpStatus.CREATED).body(nuevoReporte);
     }
 
     @PutMapping("/{id}")
