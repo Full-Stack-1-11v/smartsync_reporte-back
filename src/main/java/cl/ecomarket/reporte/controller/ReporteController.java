@@ -3,6 +3,7 @@ package cl.ecomarket.reporte.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,14 +47,10 @@ public class ReporteController {
         return ResponseEntity.ok(reportes);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Reporte> buscarPorId(@PathVariable Integer id) {
-        try {
-            Reporte reporte = reporteService.findById(id);
-            return ResponseEntity.ok(reporte);
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
+    @GetMapping
+    public ResponseEntity<Reporte> buscarPorId(@RequestBody Reporte reporte) {
+        Reporte nuevoReporte = reporteService.save(reporte);
+        return ResponseEntity.status(HttpStatus.CREATED).body(nuevoReporte);
     }
 
     @PostMapping("/{id}")
