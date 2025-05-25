@@ -56,7 +56,7 @@ public class ReporteController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/{id}")
     public ResponseEntity<Reporte> guardar(@PathVariable Integer id) {
         try {
             Reporte reporte = reporteService.findById(id);
