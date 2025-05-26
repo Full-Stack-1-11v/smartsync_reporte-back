@@ -47,7 +47,7 @@ public class ReporteController {
         return ResponseEntity.ok(reportes);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}/buscar")
     public ResponseEntity<Reporte> buscarPorId(@PathVariable Integer id) {
         try {
             Reporte reporte = reporteService.findById(id);
@@ -57,13 +57,13 @@ public class ReporteController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/guardar")
     public ResponseEntity<Reporte> guardar(@RequestBody Reporte reporte){
         Reporte nuevoReporte = reporteService.save(reporte);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoReporte);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}/actualizar")
     public ResponseEntity<Reporte> actualizar(@PathVariable Integer id, @RequestBody Reporte reporte){
         try {
             Reporte rep = reporteService.findById(id);
@@ -78,7 +78,7 @@ public class ReporteController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}/eliminar")
     public ResponseEntity<?> eliminar(@PathVariable Integer id){
         try {
             reporteService.deleteById(id);
