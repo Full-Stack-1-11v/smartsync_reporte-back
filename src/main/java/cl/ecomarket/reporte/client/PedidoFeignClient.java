@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import cl.ecomarket.reporte.dto.PedidoDTO;
 
-@FeignClient(name = "Pedido-Api", url = "https://smartsync-pedido-back.onrender.com")
+@FeignClient(name = "Pedido-Api", url = "https://smartsync-pedido-back-2-0.onrender.com")
 public interface PedidoFeignClient {
 
     @GetMapping("/api/pedidos/listar")
