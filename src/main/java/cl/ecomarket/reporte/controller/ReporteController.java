@@ -31,7 +31,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-/*
+/**
  * Controladores del tipo REST para gestionar los reportes.
  * Proporciona endpoints del tipo listar, buscar por id, guardar, actualizar y eliminar.
  */
@@ -40,36 +40,36 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @Tag(name = "Reportes", description = "Operaciones relacionadas con los reportes")
 public class ReporteController {
 
-    /*
+    /**
      * Services para gestionar reportes.
      */
     @Autowired
     private ReporteService reporteService;
 
-    /*
+    /**
      * Services para gestionar Pedidos.
      */
     @Autowired
     private PedidoDTOService pedidoDTOService;
 
-    /*
+    /**
      * Assembler para implementar HATEOAS a los metodos REST de Reporte.
      */
     @Autowired
     private ReporteModelAssembler reporteAssembler;
 
-    /*
+    /**
      * Assembler para implementar HATEOAS al metodo REST de Pedido.
      */
     @Autowired
     private PedidoDTOModelAssembler dtoAssembler;
 
-    /*
+    /**
      * Logger de la clase para registar eventos y errores.
      */
     private static final Logger logger = LoggerFactory.getLogger(ReporteController.class);
 
-    /*
+    /**
      * Metodo Rest del tipo GET.
      * Llama a la API Pedidos y obtiene una lista de todos los pedidos.
      * @return lista de pedidos {@link PedidoDTO}.
@@ -93,7 +93,7 @@ public class ReporteController {
         return ResponseEntity.ok(pedidos);
     }
 
-    /*
+    /**
      * Metodo Rest del tipo GET.
      * Obtiene una lista de todos los reportes de la API.
      * @return lista de objetos {@link Reporte}.
@@ -117,10 +117,10 @@ public class ReporteController {
         return ResponseEntity.ok(reportes);
     }
 
-    /*
+    /**
      * Metodo Rest del tipo GET.
      * Busca un reporte por su ID.
-     * @Param ID reporte.
+     * @param id reporte.
      * @return Objeto del tipo {@link Reporte}.
      */
     @GetMapping("/{id}/buscar")
@@ -143,10 +143,10 @@ public class ReporteController {
         }
     }
 
-    /*
+    /**
      * Metodo Rest del tipo POST.
      * Crea un objeto y lo guarda en la base de datos.
-     * @Param Cuerpo completo del Reporte {@link Reporte}.
+     * @param reporte completo del Reporte {@link Reporte}.
      * @return Objeto tipo {@link Reporte} Creado.
      */
     @PostMapping("/guardar")
@@ -164,10 +164,10 @@ public class ReporteController {
         return ResponseEntity.status(HttpStatus.CREATED).body(reporteModel);
     }
 
-    /*
+    /**
      * Metodo Rest del tipo PUT.
      * Busca un Reporte por su ID y lo actualiza a travez de su cuerpo.
-     * @param ID Reporte.
+     * @param id Reporte.
      * @return Objeto tipo {@link Reporte} actualizado.
      */
     @PutMapping("/{id}/actualizar")
@@ -194,10 +194,10 @@ public class ReporteController {
         }
     }
 
-    /*
+    /**
      * Metodo Rest del tipo DELETE.
      * Busca un reporte por su ID y lo elimina.
-     * @param ID producto.
+     * @param id producto.
      */
     @DeleteMapping("/{id}/eliminar")
     @Operation(summary = "Eliminar un reporte", description = "Busca y elimina un reporte por su ID")

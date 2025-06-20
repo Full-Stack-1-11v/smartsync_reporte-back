@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import cl.ecomarket.reporte.controller.ReporteController;
 import cl.ecomarket.reporte.model.Reporte;
 
-/*
+/**
  * Clase que implementa el ensamblador de modelo para Reporte.
  * Utiliza spring HATEOAS para agregar enlaces a los recursos.
  */

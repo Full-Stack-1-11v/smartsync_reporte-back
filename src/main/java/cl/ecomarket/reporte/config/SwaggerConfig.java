@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 
-/*
+/**
  * Clase de configuracion basica de Swagger.
  * Permite modificar el titulo, version y la descripcion.
  * Swagger permite documentar y probar APIs del tipo REST.

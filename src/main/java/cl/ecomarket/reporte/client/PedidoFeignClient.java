@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import cl.ecomarket.reporte.dto.PedidoDTO;
 
-/*
+/**
  * Interfaz que permite la comunicacion con la API de pedidos.
  * Utiliza la dependencia Open Feign para llamar a la API pedidos.
  */

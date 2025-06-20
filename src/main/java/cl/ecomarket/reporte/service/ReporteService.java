@@ -11,7 +11,7 @@ import cl.ecomarket.reporte.model.Reporte;
 import cl.ecomarket.reporte.repository.ReporteRepository;
 import jakarta.transaction.Transactional;
 
-/*
+/**
  * Servicio que permite gestionar los reportes.
  * Proporciona metodos para listar, buscar por id, guardar y eliminar reportes.
  */
@@ -22,12 +22,12 @@ public class ReporteService {
     @Autowired
     private ReporteRepository reporteRepository;
 
-    /*
+    /**
      * Logger de la clase para registrar eventos.
      */
     private static final Logger logger = LoggerFactory.getLogger(ReporteRepository.class);
 
-    /*
+    /**
      * Metodo que permite listar todos los reportes.
      * @return lista de objetos {@link Reporte}.
      */
@@ -36,9 +36,9 @@ public class ReporteService {
         return reporteRepository.findAll();
     }
 
-    /*
+    /**
      * Metodo que permite buscar un reporte por su ID.
-     * @param ID Reporte.
+     * @param id Reporte.
      * @return Objeto {@link Reporte}.
      */
     public Reporte findById(Integer id){
@@ -46,9 +46,9 @@ public class ReporteService {
         return reporteRepository.findById(id).orElse(null);
     }
 
-    /*
+    /**
      * Metodo que permite guardar un nuevo reporte.
-     * @param Objeto completo {@link Reporte}.
+     * @param reporte completo {@link Reporte}.
      * @return Objeto tipo {@link Reporte} creado.
      */
     public Reporte save(Reporte reporte){
@@ -56,9 +56,9 @@ public class ReporteService {
         return reporteRepository.save(reporte);
     }
 
-    /*
+    /**
      * Metodo que permite buscar y elimiar un reporte por su ID.
-     * @para ID {@link Reporte}.
+     * @param id  {@link Reporte}.
      */
     public void deleteById(Integer id){
         logger.info("[deleteById] Inicio.");

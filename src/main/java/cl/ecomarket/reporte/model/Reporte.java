@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/*
+/**
  * Entidad que representa los Reportes del sistema.
  * Contiene informacion de los reportes tales como ID Reporte,
  * Tipo de reporte y fecha del reporte.
@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Reporte {
     
-    /*
+    /**
      * ID unico del reporte,
      * es generado automaticamente en la base de datos.
      */
@@ -32,14 +32,14 @@ public class Reporte {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    /*
+    /**
      * Tipo del reporte.
      * Este campo es obligatorio.
      */
     @Column(nullable = false)
     private String tipo;
 
-    /*
+    /**
      * Fecha del reporte.
      * Este campo es obligatorio.
      */
