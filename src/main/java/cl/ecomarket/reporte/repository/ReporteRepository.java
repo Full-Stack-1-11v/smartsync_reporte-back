@@ -9,6 +9,10 @@ import org.springframework.stereotype.Repository;
 
 import cl.ecomarket.reporte.model.Reporte;
 
+/*
+ * Repositorio para gestionar el acceso a los datos de la entidad {@link Reporte}
+ * Proporciona metodos para realizar consultas personalizadas.
+ */
 @Repository
 public interface ReporteRepository extends JpaRepository<Reporte, Integer>{
 
